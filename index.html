@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>BooDuh | Music, Creative Services, Store</title>
+    <meta
+      name="description"
+      content="BooDuh's official hub for music, same-day creative services, portfolio work, and a flexible resale store."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header" data-header>
+      <a class="brand" href="#top" aria-label="BooDuh home">
+        <span class="brand-mark">B</span>
+        <span>BooDuh</span>
+      </a>
+      <nav aria-label="Primary navigation">
+        <a href="#work">Work</a>
+        <a href="#music">Music</a>
+        <a href="#store">Store</a>
+        <a href="#hire">Hire</a>
+      </nav>
+      <a class="header-action" href="mailto:brianalbert37@gmail.com?subject=Fast%20creative%20work%20request">Book</a>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-media" aria-hidden="true">
+          <img src="assets/images/twist-cover.png" alt="" />
+        </div>
+        <div class="hero-copy">
+          <p class="eyebrow">Music. Design. Edits. Listings. Same-day help.</p>
+          <h1>BooDuh makes the rough idea sellable.</h1>
+          <div class="hero-actions">
+            <a class="button primary" href="#hire">Hire BooDuh</a>
+            <a class="button secondary" href="#listing-studio">Create a listing</a>
+          </div>
+          <dl class="stat-row">
+            <div>
+              <dt>Today</dt>
+              <dd>Fast turnaround offers</dd>
+            </div>
+            <div>
+              <dt>$25+</dt>
+              <dd>Entry creative jobs</dd>
+            </div>
+            <div>
+              <dt>All-in-one</dt>
+              <dd>Music, work, shop</dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+
+      <section class="section strip" aria-label="Current offers">
+        <div class="offer-ticker">
+          <span>Same-day flyer or social post: $25</span>
+          <span>Short promo edit: $45</span>
+          <span>Mix polish: $35</span>
+          <span>Product listing copy: $15/item</span>
+        </div>
+      </section>
+
+      <section class="section split" id="work">
+        <div>
+          <p class="eyebrow">Portfolio</p>
+          <h2>Creative options, ready when needed.</h2>
+        </div>
+        <div class="work-grid">
+          <article class="work-item">
+            <span class="work-number">01</span>
+            <h3>Audio polish</h3>
+          </article>
+          <article class="work-item">
+            <span class="work-number">02</span>
+            <h3>Visual assets</h3>
+          </article>
+          <article class="work-item">
+            <span class="work-number">03</span>
+            <h3>Short edits</h3>
+          </article>
+          <article class="work-item">
+            <span class="work-number">04</span>
+            <h3>Resale listings</h3>
+          </article>
+        </div>
+      </section>
+
+      <section class="section media-band" id="music">
+        <div class="section-heading">
+          <p class="eyebrow">Music</p>
+          <h2>Featured tracks</h2>
+        </div>
+        <div class="music-layout">
+          <article class="release-feature">
+            <img src="assets/images/speaker-cover.png" alt="BooDuh cover art with chrome speaker scene" />
+            <div>
+              <p class="eyebrow">Latest pocket</p>
+          <h3>Raw demos, finished ideas, and mood pieces.</h3>
+            </div>
+          </article>
+          <div class="track-list">
+            <article class="track">
+              <div>
+                <h3>Okay</h3>
+                <p>TheFunkyBooDuh x ShadGotTheAux</p>
+              </div>
+              <audio controls src="assets/audio/okay-booduh.mp3"></audio>
+            </article>
+            <article class="track">
+              <div>
+                <h3>Beginning's End</h3>
+                <p>BooDuh</p>
+              </div>
+              <audio controls src="assets/audio/beginnings-end.m4a"></audio>
+            </article>
+            <article class="track">
+              <div>
+                <h3>Long Damn While</h3>
+                <p>BooDuh</p>
+              </div>
+              <audio controls src="assets/audio/longdamnwhile.m4a"></audio>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="store">
+        <div class="section-heading">
+          <p class="eyebrow">Store</p>
+          <h2>Drop clothes, electronics, music items, or anything worth selling.</h2>
+          <p>
+            Upload a photo and choose what you need: title, price, market links, or optional description draft.
+          </p>
+        </div>
+
+        <div class="store-shell" id="listing-studio">
+          <section class="listing-studio" aria-label="Create store listing">
+            <form id="listingForm">
+              <div class="upload-box">
+                <input id="itemImage" name="itemImage" type="file" accept="image/*" />
+                <label for="itemImage">
+                  <span>Upload item photo</span>
+                  <small>Any item.</small>
+                </label>
+                <img id="preview" alt="Item preview" hidden />
+              </div>
+
+              <div class="form-grid">
+                <label>
+                  Category
+                  <select id="category">
+                    <option value="clothing">Clothing / shoes</option>
+                    <option value="electronics">Electronics</option>
+                    <option value="music">Music gear</option>
+                    <option value="home">Home / decor</option>
+                    <option value="collectible">Collectible</option>
+                    <option value="other">Other</option>
+                  </select>
+                </label>
+                <label>
+                  Condition
+                  <select id="condition">
+                    <option value="good">Good</option>
+                    <option value="new">New / unused</option>
+                    <option value="like-new">Like new</option>
+                    <option value="fair">Fair</option>
+                    <option value="parts">Parts / repair</option>
+                  </select>
+                </label>
+                <label>
+                  Brand or keywords
+                  <input id="keywords" type="text" placeholder="Nike hoodie, Xbox controller, studio mic..." />
+                </label>
+                <label>
+                  Floor price
+                  <input id="floorPrice" type="number" min="0" step="1" placeholder="Optional" />
+                </label>
+              </div>
+
+              <label>
+                Notes
+                <textarea id="notes" rows="3" placeholder="Size, model, flaws, included accessories, pickup area, urgency..."></textarea>
+              </label>
+
+              <div class="button-row">
+                <button class="button primary" type="submit">Generate listing</button>
+                <button class="button secondary" type="button" id="clearListings">Clear saved listings</button>
+              </div>
+            </form>
+
+            <aside class="listing-output" aria-live="polite">
+              <p class="eyebrow">Generated draft</p>
+              <h3 id="generatedTitle">Upload an item to start.</h3>
+              <details class="optional-description" open>
+                <summary>Optional description</summary>
+                <p id="generatedDescription">Generate a draft when you want listing copy.</p>
+              </details>
+              <div class="price-card">
+                <span>Suggested ask</span>
+                <strong id="generatedPrice">--</strong>
+                <small id="priceReason">Based on category, condition, and quick-sale discount.</small>
+              </div>
+              <div class="market-links" id="marketLinks"></div>
+              <button class="button secondary" id="copyListing" type="button">Copy listing</button>
+            </aside>
+          </section>
+
+          <section class="saved-listings" aria-label="Saved store listings">
+            <div class="section-heading compact">
+              <p class="eyebrow">Live store board</p>
+              <h2>Saved listings</h2>
+            </div>
+            <div class="product-grid" id="productGrid"></div>
+          </section>
+        </div>
+      </section>
+
+      <section class="section split hire-section" id="hire">
+        <div>
+          <p class="eyebrow">Hire</p>
+          <h2>Simple offers.</h2>
+          <a class="button primary" href="mailto:brianalbert37@gmail.com?subject=I%20want%20to%20hire%20BooDuh&body=What%20I%20need%3A%0ABudget%3A%0ADeadline%3A%0AFiles%20or%20links%3A">Start a job</a>
+        </div>
+        <div class="rate-list">
+          <article>
+            <h3>Quick graphic</h3>
+            <strong>$25</strong>
+          </article>
+          <article>
+            <h3>Short promo edit</h3>
+            <strong>$45</strong>
+          </article>
+          <article>
+            <h3>Mix polish</h3>
+            <strong>$35</strong>
+          </article>
+          <article>
+            <h3>Listing pack</h3>
+            <strong>$15</strong>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>BooDuh</span>
+      <a href="mailto:brianalbert37@gmail.com">brianalbert37@gmail.com</a>
+      <a href="#top">Back to top</a>
+    </footer>
+
+    <template id="productTemplate">
+      <article class="product-card">
+        <img alt="" />
+        <div class="product-body">
+          <div>
+            <p class="product-meta"></p>
+            <h3></h3>
+          </div>
+          <div class="product-footer">
+            <strong></strong>
+            <button type="button">Remove</button>
+          </div>
+        </div>
+      </article>
+    </template>
+
+    <script src="script.js"></script>
+  </body>
+</html>
