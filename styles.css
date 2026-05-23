@@ -287,6 +287,7 @@ h3 {
 .work-item p,
 .rate-list p,
 .product-card p,
+.owner-card p,
 .track p,
 .listing-output p {
   color: var(--muted);
@@ -345,7 +346,9 @@ h3 {
 .rate-list article,
 .listing-studio,
 .listing-output,
-.product-card {
+.product-card,
+.owner-card,
+.admin-panel {
   background: var(--panel);
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -597,6 +600,53 @@ textarea {
   background: #fff;
 }
 
+.owner-section {
+  background: #eef3f0;
+}
+
+.owner-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 18px;
+  align-items: stretch;
+}
+
+.owner-card,
+.admin-panel {
+  padding: clamp(20px, 3vw, 30px);
+}
+
+.owner-card,
+.admin-login,
+.admin-tools {
+  display: grid;
+  gap: 16px;
+}
+
+.owner-mark {
+  display: grid;
+  width: 76px;
+  height: 76px;
+  place-items: center;
+  color: #fff;
+  background: var(--deep);
+  border-radius: 8px;
+  font-size: 2rem;
+  font-weight: 900;
+}
+
+.owner-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.admin-status {
+  margin: 0;
+  color: var(--muted);
+  font-weight: 800;
+}
+
 .rate-list {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -638,6 +688,7 @@ textarea {
 
   .split,
   .music-layout,
+  .owner-grid,
   .listing-studio {
     grid-template-columns: 1fr;
   }

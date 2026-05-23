@@ -20,6 +20,7 @@
         <a href="#work">Work</a>
         <a href="#music">Music</a>
         <a href="#store">Store</a>
+        <a href="#owner">Owner</a>
         <a href="#hire">Hire</a>
       </nav>
       <a class="header-action" href="mailto:brianalbert37@gmail.com?subject=Fast%20creative%20work%20request">Book</a>
@@ -215,6 +216,60 @@
             </div>
             <div class="product-grid" id="productGrid"></div>
           </section>
+        </div>
+      </section>
+
+      <section class="section owner-section" id="owner">
+        <div class="section-heading">
+          <p class="eyebrow">Owner</p>
+          <h2>BooDuh profile</h2>
+        </div>
+        <div class="owner-grid">
+          <article class="owner-card">
+            <div class="owner-mark">B</div>
+            <div>
+              <p class="eyebrow">Admin / operator</p>
+              <h3>Brian Albert</h3>
+              <p>Music, creative services, listings, and same-day resale support.</p>
+            </div>
+            <div class="owner-actions">
+              <a class="button primary" id="ownerEmailLink" href="mailto:brianalbert37@gmail.com?subject=BooDuh%20work%20or%20store%20request">Email BooDuh</a>
+              <a class="button secondary" id="ownerPaymentLink" href="mailto:brianalbert37@gmail.com?subject=BooDuh%20payment%20link%20request">Request payment link</a>
+            </div>
+          </article>
+
+          <article class="admin-panel">
+            <div class="admin-login" id="adminLogin">
+              <p class="eyebrow">Owner desk</p>
+              <h3>Admin access</h3>
+              <label>
+                Passcode
+                <input id="adminPasscode" type="password" autocomplete="current-password" />
+              </label>
+              <button class="button primary" id="adminSignIn" type="button">Unlock</button>
+              <p class="admin-status" id="adminStatus">Locked</p>
+            </div>
+
+            <div class="admin-tools" id="adminTools" hidden>
+              <p class="eyebrow">Admin rights active</p>
+              <div class="form-grid">
+                <label>
+                  Public contact email
+                  <input id="ownerEmail" type="email" value="brianalbert37@gmail.com" />
+                </label>
+                <label>
+                  Payment or invoice link
+                  <input id="paymentLink" type="url" placeholder="PayPal, Stripe, Cash App, Venmo, Square..." />
+                </label>
+              </div>
+              <div class="button-row">
+                <button class="button primary" id="saveOwnerProfile" type="button">Save profile</button>
+                <button class="button secondary" id="exportListings" type="button">Export listings</button>
+                <button class="button secondary" id="lockAdmin" type="button">Lock</button>
+              </div>
+              <p class="admin-status" id="ownerSaveStatus">Ready</p>
+            </div>
+          </article>
         </div>
       </section>
 

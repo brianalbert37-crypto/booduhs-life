@@ -16,6 +16,21 @@ const productGrid = document.querySelector("#productGrid");
 const template = document.querySelector("#productTemplate");
 const copyButton = document.querySelector("#copyListing");
 const clearButton = document.querySelector("#clearListings");
+const adminPasscode = document.querySelector("#adminPasscode");
+const adminSignIn = document.querySelector("#adminSignIn");
+const adminStatus = document.querySelector("#adminStatus");
+const adminTools = document.querySelector("#adminTools");
+const adminLogin = document.querySelector("#adminLogin");
+const ownerEmail = document.querySelector("#ownerEmail");
+const paymentLink = document.querySelector("#paymentLink");
+const saveOwnerProfileButton = document.querySelector("#saveOwnerProfile");
+const exportListings = document.querySelector("#exportListings");
+const lockAdmin = document.querySelector("#lockAdmin");
+const ownerSaveStatus = document.querySelector("#ownerSaveStatus");
+const ownerEmailLink = document.querySelector("#ownerEmailLink");
+const ownerPaymentLink = document.querySelector("#ownerPaymentLink");
+
+const ownerPasscode = "booduh-admin";
 
 const pricing = {
   clothing: { min: 12, max: 58, words: ["fit", "streetwear", "clean", "ready to wear"] },
@@ -55,6 +70,41 @@ function getListings() {
 
 function saveListings(listings) {
   localStorage.setItem("booduhListings", JSON.stringify(listings));
+}
+
+function getOwnerProfile() {
+  try {
+    return JSON.parse(localStorage.getItem("booduhOwnerProfile") || "{}");
+  } catch {
+    return {};
+  }
+}
+
+function saveOwnerProfile(profile) {
+  localStorage.setItem("booduhOwnerProfile", JSON.stringify(profile));
+}
+
+function applyOwnerProfile() {
+  const profile = getOwnerProfile();
+  const email = profile.email || "brianalbert37@gmail.com";
+  const payment = profile.payment || "";
+
+  ownerEmail.value = email;
+  paymentLink.value = payment;
+  ownerEmailLink.href = `mailto:${email}?subject=BooDuh%20work%20or%20store%20request`;
+  ownerEmailLink.textContent = email;
+
+  if (payment) {
+    ownerPaymentLink.href = payment;
+    ownerPaymentLink.textContent = "Pay BooDuh";
+    ownerPaymentLink.target = "_blank";
+    ownerPaymentLink.rel = "noreferrer";
+  } else {
+    ownerPaymentLink.href = `mailto:${email}?subject=BooDuh%20payment%20link%20request`;
+    ownerPaymentLink.textContent = "Request payment link";
+    ownerPaymentLink.removeAttribute("target");
+    ownerPaymentLink.removeAttribute("rel");
+  }
 }
 
 function inferKeywords() {
@@ -194,4 +244,47 @@ clearButton.addEventListener("click", () => {
   renderProducts();
 });
 
+adminSignIn.addEventListener("click", () => {
+  if (adminPasscode.value.trim() !== ownerPasscode) {
+    adminStatus.textContent = "Wrong passcode";
+    return;
+  }
+
+  adminLogin.hidden = true;
+  adminTools.hidden = false;
+  adminStatus.textContent = "Unlocked";
+});
+
+lockAdmin.addEventListener("click", () => {
+  adminPasscode.value = "";
+  adminLogin.hidden = false;
+  adminTools.hidden = true;
+  adminStatus.textContent = "Locked";
+});
+
+saveOwnerProfileButton.addEventListener("click", () => {
+  saveOwnerProfile({
+    email: ownerEmail.value.trim() || "brianalbert37@gmail.com",
+    payment: paymentLink.value.trim(),
+    updatedAt: new Date().toISOString(),
+  });
+  applyOwnerProfile();
+  ownerSaveStatus.textContent = "Saved on this device";
+});
+
+exportListings.addEventListener("click", async () => {
+  const payload = JSON.stringify(
+    {
+      owner: getOwnerProfile(),
+      listings: getListings(),
+      exportedAt: new Date().toISOString(),
+    },
+    null,
+    2,
+  );
+  await navigator.clipboard.writeText(payload);
+  ownerSaveStatus.textContent = "Listings copied";
+});
+
+applyOwnerProfile();
 renderProducts();
